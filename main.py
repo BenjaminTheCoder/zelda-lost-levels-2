@@ -63,7 +63,21 @@ class Player(Agent):
     arrow_frame: int
     arrow_dir: str
     health: int
-    
+
+
+@dataclass
+class World:
+    game_over: bool
+    win: bool
+    player: Player
+    walls: list[Rect]
+
+# world = World(
+#     game_over = True,
+
+# )
+
+
 game_over = False
 win = False
 boss_battle = False
@@ -292,6 +306,8 @@ def update() -> None:
         player.slashing = True
     elif pyxel.btnp(pyxel.KEY_B):
         player.shooting = True
+    # elif pyxel.btnp(pyxel.KEY_S):
+    #     player.sheilding = True
     elif pyxel.btnp(pyxel.KEY_LEFT, repeat=1):
         player.direction = 'left'
         nextX = player.x - TILESIZE
@@ -376,6 +392,7 @@ def draw() -> None:
     if game_over == True:
         play_sound("lose")
         pyxel.cls(0)
+        pyxel.camera(0, 0)
         pyxel.blt(255, 255 - 80, 2, 0, 0, 255, 31)
         pyxel.text(350, 300 - 80, "PRESS R TO RESTART", 8)
     elif win == True:
@@ -391,7 +408,7 @@ def draw() -> None:
             play_sound("boss2")
         else:
             play_sound("game")
-        pyxel.cls(5)
+        pyxel.cls(8)
         pyxel.bltm(0, 0, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         for door in doors:
             pyxel.rect(door.x, door.y, door.w, door.h, door.color)    
@@ -412,6 +429,7 @@ def draw() -> None:
                 pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
                 pyxel.blt(moblin1.x, moblin1.y, 0, 16, 16, TILESIZE, TILESIZE, 14)
                 pyxel.blt(moblin2.x, moblin2.y, 0, 16, 16, TILESIZE, TILESIZE, 14)
+        pyxel.camera(player.x - SCREEN_WIDTH//2, player.y - SCREEN_HEIGHT//2)
         if player.direction == 'down':
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
         elif player.direction == 'up':
