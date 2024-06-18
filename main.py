@@ -1,4 +1,4 @@
-import pyxel
+import pyxel 
 from dataclasses import dataclass
 import random
 import math
@@ -60,6 +60,7 @@ class Player(Agent):
     direction: str
     slashing: bool
     shooting: bool
+    shielding: bool
     arrow_frame: int
     arrow_dir: str
     health: int
@@ -84,10 +85,12 @@ boss_battle = False
 boss_battle2 = False
 whichSoundIsPlaying: str | None = None
 heart = Item(x = 27 * TILESIZE, y = TILESIZE * 28, name = 'Heart', tile_x = 0, tile_y = 32)
-player = Player(x = SCREEN_WIDTH // 5, y = SCREEN_HEIGHT // 5, inventory = [], direction = 'down', slashing = False, shooting = False, arrow_frame = 0, arrow_dir = 'up', health = 10)
+player = Player(x = SCREEN_WIDTH // 5, y = SCREEN_HEIGHT // 5, inventory = [], direction = 'down', slashing = False, shooting = False, shielding = False, arrow_frame = 0, arrow_dir = 'up', health = 10)
 sword = Item(x = 9*TILESIZE, y = 12*TILESIZE, name = 'Sword', tile_x = 16, tile_y = 0)
 slash_sword = ItemWithDirection(x = -10*TILESIZE, y = -10*TILESIZE, tile_x_down = 16, tile_y_down = 32, tile_x_up = 64, tile_y_up = 0, tile_x_left = 48, tile_y_left = 32, tile_x_right = 32, tile_y_right = 32, alpha = 7)
+# shield = Item(x = 27*TILESIZE, y = 19*TILESIZE, name = 'Shield', tile_x = 112, tile_y = 0)
 shoot_bow =   ItemWithDirection(x = -20*TILESIZE, y = -20*TILESIZE, tile_x_down = 16, tile_y_down = 64, tile_x_up = 0,  tile_y_up = 64,tile_x_left = 32, tile_y_left = 64, tile_x_right = 48, tile_y_right = 64, alpha = 14)
+# sheilding_shield = ItemWithDirection(x = -20*TILESIZE, y = -20*TILESIZE, tile_x_down = 16, tile_y_down = 64, tile_x_up = 0,  tile_y_up = 64,tile_x_left = 32, tile_y_left = 64, tile_x_right = 48, tile_y_right = 64, alpha = 14)
 arrow = ItemWithDirection(x = -30*TILESIZE, y = -30*TILESIZE, tile_x_down = 16, tile_y_down = 48, tile_x_up = 0,  tile_y_up = 48,tile_x_left = 32, tile_y_left = 48, tile_x_right = 48, tile_y_right = 48, alpha = 7)
 Din = Item(x=640, y=80, name = 'Dinral', tile_x = 32, tile_y = 112)
 bow = Item(x = 26*TILESIZE, y = 19*TILESIZE, name = 'Bow', tile_x = 32, tile_y = 0)
@@ -137,7 +140,7 @@ def reset_game() -> None:
     boss_battle2 = False
     whichSoundIsPlaying = None
     heart = Item(x = 27 * TILESIZE, y = TILESIZE * 28, name = 'Heart', tile_x = 0, tile_y = 32)
-    player = Player(x = SCREEN_WIDTH // 5, y = SCREEN_HEIGHT // 5, inventory = [], direction = 'down', slashing = False, shooting = False, arrow_frame = 0, arrow_dir = 'up', health = 10)
+    player = Player(x = SCREEN_WIDTH // 5, y = SCREEN_HEIGHT // 5, inventory = [], direction = 'down', slashing = False, shooting = False, arrow_frame = 0, arrow_dir = 'up', health = 10, shielding = False)
     sword = Item(x = 9*TILESIZE, y = 12*TILESIZE, name = 'Sword', tile_x = 16, tile_y = 0)
     slash_sword = ItemWithDirection(x = -10*TILESIZE, y = -10*TILESIZE, tile_x_down = 16, tile_y_down = 32, tile_x_up = 64, tile_y_up = 0, tile_x_left = 48, tile_y_left = 32, tile_x_right = 32, tile_y_right = 32, alpha = 7)
     shoot_bow =   ItemWithDirection(x = -20*TILESIZE, y = -20*TILESIZE, tile_x_down = 16, tile_y_down = 64, tile_x_up = 0,  tile_y_up = 64,tile_x_left = 32, tile_y_left = 64, tile_x_right = 48, tile_y_right = 64, alpha = 14)
@@ -306,8 +309,8 @@ def update() -> None:
         player.slashing = True
     elif pyxel.btnp(pyxel.KEY_B):
         player.shooting = True
-    # elif pyxel.btnp(pyxel.KEY_S):
-    #     player.sheilding = True
+    elif pyxel.btnp(pyxel.KEY_S):
+        player.shielding = True
     elif pyxel.btnp(pyxel.KEY_LEFT, repeat=1):
         player.direction = 'left'
         nextX = player.x - TILESIZE
@@ -341,7 +344,7 @@ def update() -> None:
         sword.x = TILESIZE * 5
         sword.y = TILESIZE * 28
     elif player.x == bow.x and player.y == bow.y:
-        player.inventory.append(bow)
+        player.inventory.append(bow) 
         bow.x = TILESIZE * 7
         bow.y = TILESIZE * 28
     elif player.x == quiver.x and player.y == quiver.y:
