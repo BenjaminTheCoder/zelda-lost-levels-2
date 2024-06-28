@@ -148,7 +148,7 @@ def update() -> None:
         player.slashing = True
     elif pyxel.btnp(pyxel.KEY_B):
         player.shooting = True
-    elif pyxel.btnp(pyxel.KEY_S):
+    elif pyxel.btnp(pyxel.KEY_S, repeat=1):
         player.shielding = True
     elif pyxel.btnp(pyxel.KEY_LEFT, repeat=1):
         player.direction = 'left'
@@ -194,8 +194,8 @@ def update() -> None:
         player.slashing = False
     elif player.x == shield.x and player.y == shield.y:
         player.inventory.append(shield)
-        quiver.x = TILESIZE * 11
-        quiver.y = TILESIZE * 28
+        shield.x = TILESIZE * 13
+        shield.y = TILESIZE * 28
     if shield not in player.inventory:
         player.shielding = False
     if bow not in player.inventory and quiver not in player.inventory:
@@ -296,6 +296,17 @@ def draw() -> None:
                 pyxel.blt(slash_sword.x, slash_sword.y, 0, slash_sword.tile_x_right, slash_sword.tile_y_right, TILESIZE, TILESIZE, slash_sword.alpha)
             elif player.direction == 'left':
                 pyxel.blt(slash_sword.x, slash_sword.y, 0, slash_sword.tile_x_left, slash_sword.tile_y_left, TILESIZE, TILESIZE, slash_sword.alpha)  
+
+        if player.shooting == True:    
+            if player.direction == 'down':
+                pyxel.blt(shoot_bow.x, shoot_bow.y, 0, shoot_bow.tile_x_down, shoot_bow.tile_y_down, TILESIZE, TILESIZE, shoot_bow.alpha)
+            elif player.direction == 'up':
+                pyxel.blt(shoot_bow.x, shoot_bow.y, 0, shoot_bow.tile_x_up, shoot_bow.tile_y_up, TILESIZE, TILESIZE, shoot_bow.alpha)
+            elif player.direction == 'right':
+                pyxel.blt(shoot_bow.x, shoot_bow.y, 0, shoot_bow.tile_x_right, shoot_bow.tile_y_right, TILESIZE, TILESIZE, shoot_bow.alpha)
+            elif player.direction == 'left':
+                pyxel.blt(shoot_bow.x, shoot_bow.y, 0, shoot_bow.tile_x_left, shoot_bow.tile_y_left, TILESIZE, TILESIZE, shoot_bow.alpha)  
+
 
         if player.shielding == True:
             if player.direction == 'down':
