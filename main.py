@@ -601,7 +601,7 @@ def moblinCheck(moblins: list[Moblin], size: float) -> None:
 
 
 def update() -> None:
-    global game_over, win, boss_battle, boss_battle2
+    global game_over, win, boss_battle, boss_battle2, player
     updateWeaponPosition(slash_sword)
     updateWeaponPosition(shoot_bow)
     updateShieldPosition(sheilding_shield)
@@ -725,6 +725,7 @@ def update() -> None:
             door.y = -1000000
     if pyxel.btnp(pyxel.KEY_R, repeat=1) and (game_over == True or win == True):
         reset_game()
+        print(f"Player after reset game {player}")
     if player.health <= 0:
         game_over = True
     if Din.x == player.x and Din.y == player.y:
@@ -830,7 +831,7 @@ def draw() -> None:
                     Gannondorf.y,
                     0,
                     0,
-                    160,
+                    80,
                     2 * TILESIZE,
                     2 * TILESIZE,
                     14,
@@ -838,8 +839,8 @@ def draw() -> None:
                 pyxel.blt(
                     Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14
                 )
-                pyxel.blt(moblin1.x, moblin1.y, 0, 16, 16, TILESIZE, TILESIZE, 14)
-                pyxel.blt(moblin2.x, moblin2.y, 0, 16, 16, TILESIZE, TILESIZE, 14)
+                pyxel.blt(moblin1.x, moblin1.y, 0, 32, 80, TILESIZE, TILESIZE, 14)
+                pyxel.blt(moblin2.x, moblin2.y, 0, 326, 80, TILESIZE, TILESIZE, 14)
         pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
@@ -1096,6 +1097,7 @@ def play_sound(sound: str | None) -> None:
 
 
 reset_game()
+
 # Jitter the screen widht and height by 1 pixel to improve rendering
 pyxel.init(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, fps=15, display_scale=2)
 pyxel.load("assets.pyxres")
