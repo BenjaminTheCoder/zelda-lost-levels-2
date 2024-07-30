@@ -14,11 +14,13 @@ class Rect:
 class Agent:
     x: int
     y: int
+    health: float
+    direction: str
 
 
 @dataclass
 class Enemy(Agent):
-    health: int
+    pass
 
 
 @dataclass
@@ -53,13 +55,11 @@ class ItemWithDirection:
 @dataclass
 class Player(Agent):
     inventory: list[Item]
-    direction: str
     slashing: bool
     shooting: bool
     shielding: bool
     arrow_frame: int
     arrow_dir: str
-    health: float
 
 
 @dataclass

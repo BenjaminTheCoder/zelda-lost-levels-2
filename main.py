@@ -87,7 +87,9 @@ closed_chest = Item(
     x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96
 )
 key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH)
+Gannondorf = Moblin(
+    x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down"
+)
 secretdoor1 = Rect(
     x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR
 )
@@ -190,16 +192,16 @@ doors = [
     Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
 ]
 Room1Moblins = [
-    Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH),
+    Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
 ]
 SecretRoomMoblins = [
-    Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH),
-    Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH),
+    Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
 ]
 Gannondorfs = [Gannondorf]
 dr1 = Rect(x=256 - TILESIZE, y=112, w=16, h=112, color=7)
@@ -295,7 +297,9 @@ def reset_game() -> None:
         x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96
     )
     key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-    Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH)
+    Gannondorf = Moblin(
+        x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down"
+    )
     secretdoor1 = Rect(
         x=23 * TILESIZE,
         y=25 * TILESIZE,
@@ -426,16 +430,26 @@ def reset_game() -> None:
         Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
     ]
     Room1Moblins = [
-        Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH),
+        Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(
+            x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
+        ),
+        Moblin(
+            x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
+        ),
     ]
     SecretRoomMoblins = [
-        Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH),
-        Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH),
+        Moblin(
+            x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
+        ),
+        Moblin(
+            x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
+        ),
+        Moblin(
+            x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
+        ),
     ]
     Gannondorfs = [Gannondorf]
     dr1 = Rect(x=256 - TILESIZE, y=112, w=16, h=112, color=7)
@@ -581,6 +595,15 @@ def moblinCheck(moblins: list[Moblin], size: float) -> None:
             if canGo:
                 mob.x += int(stepX * TILESIZE * size)
                 mob.y += int(stepY * TILESIZE * size)
+                if int(stepY) == -1:
+                    mob.direction = "up"
+                elif int(stepY) == 1:
+                    mob.direction = "down"
+                if int(stepX) == 1:
+                    mob.direction = "right"
+                elif int(stepX) == -1:
+                    mob.direction = "left"
+
         if (
             slash_sword.x == mob.x
             and slash_sword.y == mob.y
@@ -667,9 +690,9 @@ def update() -> None:
         player.shielding = False
     if bow not in player.inventory and quiver not in player.inventory:
         player.shooting = False
-    moblinCheck(Room1Moblins, 1)
-    moblinCheck(SecretRoomMoblins, 1)
-    moblinCheck(Gannondorfs, 2)
+    moblinCheck(Room1Moblins, 1.0)
+    moblinCheck(SecretRoomMoblins, 1.0)
+    moblinCheck(Gannondorfs, 2.0)
     if Gannondorf.health <= GANNONDORF_HEALTH // 2:
         boss_battle = False
         boss_battle2 = True
@@ -770,78 +793,77 @@ def draw() -> None:
                 TILESIZE,
                 7,
             )
-        for moblin1 in Room1Moblins:
-            for moblin2 in SecretRoomMoblins:
-                pyxel.blt(
-                    sword.x,
-                    sword.y,
-                    0,
-                    sword.tile_x,
-                    sword.tile_y,
-                    TILESIZE,
-                    TILESIZE,
-                    14,
-                )
-                pyxel.blt(
-                    bow.x, bow.y, 0, bow.tile_x, bow.tile_y, TILESIZE, TILESIZE, 14
-                )
-                pyxel.blt(
-                    shield.x,
-                    shield.y,
-                    0,
-                    shield.tile_x,
-                    shield.tile_y,
-                    TILESIZE,
-                    TILESIZE,
-                    14,
-                )
-                pyxel.blt(
-                    quiver.x,
-                    quiver.y,
-                    0,
-                    quiver.tile_x,
-                    quiver.tile_y,
-                    TILESIZE,
-                    TILESIZE,
-                    14,
-                )
-                pyxel.blt(
-                    closed_chest.x,
-                    closed_chest.y,
-                    0,
-                    closed_chest.tile_x,
-                    closed_chest.tile_y,
-                    TILESIZE,
-                    TILESIZE,
-                )
-                pyxel.blt(
-                    open_chest.x,
-                    open_chest.y,
-                    0,
-                    open_chest.tile_x,
-                    open_chest.tile_y,
-                    TILESIZE,
-                    TILESIZE,
-                )
-                pyxel.blt(
-                    key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7
-                )
-                pyxel.blt(
-                    Gannondorf.x,
-                    Gannondorf.y,
-                    0,
-                    0,
-                    80,
-                    2 * TILESIZE,
-                    2 * TILESIZE,
-                    14,
-                )
-                pyxel.blt(
-                    Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14
-                )
-                pyxel.blt(moblin1.x, moblin1.y, 0, 32, 80, TILESIZE, TILESIZE, 14)
-                pyxel.blt(moblin2.x, moblin2.y, 0, 326, 80, TILESIZE, TILESIZE, 14)
-        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
+            pyxel.blt(
+                sword.x,
+                sword.y,
+                0,
+                sword.tile_x,
+                sword.tile_y,
+                TILESIZE,
+                TILESIZE,
+                14,
+            )
+            pyxel.blt(bow.x, bow.y, 0, bow.tile_x, bow.tile_y, TILESIZE, TILESIZE, 14)
+            pyxel.blt(
+                shield.x,
+                shield.y,
+                0,
+                shield.tile_x,
+                shield.tile_y,
+                TILESIZE,
+                TILESIZE,
+                14,
+            )
+            pyxel.blt(
+                quiver.x,
+                quiver.y,
+                0,
+                quiver.tile_x,
+                quiver.tile_y,
+                TILESIZE,
+                TILESIZE,
+                14,
+            )
+            pyxel.blt(
+                closed_chest.x,
+                closed_chest.y,
+                0,
+                closed_chest.tile_x,
+                closed_chest.tile_y,
+                TILESIZE,
+                TILESIZE,
+            )
+            pyxel.blt(
+                open_chest.x,
+                open_chest.y,
+                0,
+                open_chest.tile_x,
+                open_chest.tile_y,
+                TILESIZE,
+                TILESIZE,
+            )
+            pyxel.blt(key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7)
+            pyxel.blt(
+                Gannondorf.x,
+                Gannondorf.y,
+                0,
+                0,
+                80,
+                2 * TILESIZE,
+                2 * TILESIZE,
+                14,
+            )
+            pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
+    for moblin in Room1Moblins + SecretRoomMoblins:
+        if moblin.direction == "down":
+            pyxel.blt(moblin.x, moblin.y, 0, 32, 80, 16, 16, 14)
+        elif player.direction == "up":
+            pyxel.blt(player.x, moblin.y, 0, 80, 128, 16, 16, 14)
+        elif player.direction == "left":
+            pyxel.blt(moblin.x, moblin.y, 0, 48, 128, 16, 16, 14)
+        elif moblin.direction == "right":
+            pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
+
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
         elif player.direction == "up":
