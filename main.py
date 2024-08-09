@@ -603,7 +603,7 @@ def moblinCheck(moblins: list[Moblin], size: float) -> None:
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-
+                    print("left")
         if (
             slash_sword.x == mob.x
             and slash_sword.y == mob.y
@@ -793,76 +793,77 @@ def draw() -> None:
                 TILESIZE,
                 7,
             )
-            pyxel.blt(
-                sword.x,
-                sword.y,
-                0,
-                sword.tile_x,
-                sword.tile_y,
-                TILESIZE,
-                TILESIZE,
-                14,
-            )
-            pyxel.blt(bow.x, bow.y, 0, bow.tile_x, bow.tile_y, TILESIZE, TILESIZE, 14)
-            pyxel.blt(
-                shield.x,
-                shield.y,
-                0,
-                shield.tile_x,
-                shield.tile_y,
-                TILESIZE,
-                TILESIZE,
-                14,
-            )
-            pyxel.blt(
-                quiver.x,
-                quiver.y,
-                0,
-                quiver.tile_x,
-                quiver.tile_y,
-                TILESIZE,
-                TILESIZE,
-                14,
-            )
-            pyxel.blt(
-                closed_chest.x,
-                closed_chest.y,
-                0,
-                closed_chest.tile_x,
-                closed_chest.tile_y,
-                TILESIZE,
-                TILESIZE,
-            )
-            pyxel.blt(
-                open_chest.x,
-                open_chest.y,
-                0,
-                open_chest.tile_x,
-                open_chest.tile_y,
-                TILESIZE,
-                TILESIZE,
-            )
-            pyxel.blt(key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7)
-            pyxel.blt(
-                Gannondorf.x,
-                Gannondorf.y,
-                0,
-                0,
-                80,
-                2 * TILESIZE,
-                2 * TILESIZE,
-                14,
-            )
-            pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
-    for moblin in Room1Moblins + SecretRoomMoblins:
-        if moblin.direction == "down":
-            pyxel.blt(moblin.x, moblin.y, 0, 32, 80, 16, 16, 14)
-        elif player.direction == "up":
-            pyxel.blt(player.x, moblin.y, 0, 80, 128, 16, 16, 14)
-        elif player.direction == "left":
-            pyxel.blt(moblin.x, moblin.y, 0, 48, 128, 16, 16, 14)
-        elif moblin.direction == "right":
-            pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
+        pyxel.blt(
+            sword.x,
+            sword.y,
+            0,
+            sword.tile_x,
+            sword.tile_y,
+            TILESIZE,
+            TILESIZE,
+            14,
+        )
+        pyxel.blt(bow.x, bow.y, 0, bow.tile_x, bow.tile_y, TILESIZE, TILESIZE, 14)
+        pyxel.blt(
+            shield.x,
+            shield.y,
+            0,
+            shield.tile_x,
+            shield.tile_y,
+            TILESIZE,
+            TILESIZE,
+            14,
+        )
+        pyxel.blt(
+            quiver.x,
+            quiver.y,
+            0,
+            quiver.tile_x,
+            quiver.tile_y,
+            TILESIZE,
+            TILESIZE,
+            14,
+        )
+        pyxel.blt(
+            closed_chest.x,
+            closed_chest.y,
+            0,
+            closed_chest.tile_x,
+            closed_chest.tile_y,
+            TILESIZE,
+            TILESIZE,
+        )
+        pyxel.blt(
+            open_chest.x,
+            open_chest.y,
+            0,
+            open_chest.tile_x,
+            open_chest.tile_y,
+            TILESIZE,
+            TILESIZE,
+        )
+        pyxel.blt(key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7)
+        pyxel.blt(
+            Gannondorf.x,
+            Gannondorf.y,
+            0,
+            0,
+            80,
+            2 * TILESIZE,
+            2 * TILESIZE,
+            14,
+        )
+        pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
+
+        for moblin in Room1Moblins + SecretRoomMoblins:
+            if moblin.direction == "down":
+                pyxel.blt(moblin.x, moblin.y, 0, 32, 80, 16, 16, 14)
+            elif moblin.direction == "up":
+                pyxel.blt(moblin.x, moblin.y, 0, 80, 128, 16, 16, 14)
+            elif moblin.direction == "left":
+                pyxel.blt(moblin.x, moblin.y, 0, 48, 128, 16, 16, 14)
+            elif moblin.direction == "right":
+                pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
 
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
