@@ -585,16 +585,16 @@ def vector2D(x1: float, y1: float, x2: float, y2: float) -> tuple[float, float]:
     return (dxn, dyn)
 
 
-def moblinCheck(moblins: list[Moblin], size: float) -> None:
+def moblinCheck(
+    moblins: list[Moblin],
+) -> None:
     for mob in moblins:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
-            canGo = canYouGoThere(
-                mob.x + stepX * TILESIZE * size, mob.y + stepY * TILESIZE * size
-            )
+            canGo = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
             if canGo:
-                mob.x += int(stepX * TILESIZE * size)
-                mob.y += int(stepY * TILESIZE * size)
+                mob.x += int(stepX * TILESIZE)
+                mob.y += int(stepY * TILESIZE)
                 if int(stepY) == -1:
                     mob.direction = "up"
                 elif int(stepY) == 1:
@@ -619,8 +619,50 @@ def moblinCheck(moblins: list[Moblin], size: float) -> None:
             else:
                 player.health -= 1 / 5
         if mob.health <= 0:
-            mob.x = -70
-            mob.y = -70
+            mob.x = -7000000000000000000000000000000000
+            mob.y = -7000000000000000000000000000000000
+
+
+def GannondorfCheck(moblins: list[Moblin]) -> None:
+    for mob in moblins:
+        if random.random() < 0.05:
+            stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
+            canGo = canYouGoThere(
+                mob.x + stepX * TILESIZE * 2, mob.y + stepY * TILESIZE * 2
+            )
+            if canGo:
+                mob.x += int(stepX * TILESIZE * 2)
+                mob.y += int(stepY * TILESIZE * 2)
+                if int(stepY) == -1:
+                    mob.direction = "up"
+                elif int(stepY) == 1:
+                    mob.direction = "down"
+                if int(stepX) == 1:
+                    mob.direction = "right"
+                elif int(stepX) == -1:
+                    mob.direction = "left"
+                    print("left")
+        if (
+            slash_sword.x == mob.x * TILESIZE * 2
+            and slash_sword.y == mob.y * TILESIZE * 2
+            and player.slashing == True
+        ):
+            mob.health -= 1
+        if arrow.x == mob.x * TILESIZE * 2 and arrow.y == mob.y * TILESIZE * 2:
+            mob.health -= 1
+            player.arrow_frame = 0
+        if (
+            player.x == mob.x * TILESIZE * 2
+            and player.y == mob.y * TILESIZE * 2
+            and random.random() < 0.3
+        ):
+            if not player.shielding:
+                player.health -= 1
+            else:
+                player.health -= 1 / 5
+        if mob.health <= 0:
+            mob.x = -700000000000000000
+            mob.y = -700000000000000000
 
 
 def update() -> None:
@@ -690,9 +732,9 @@ def update() -> None:
         player.shielding = False
     if bow not in player.inventory and quiver not in player.inventory:
         player.shooting = False
-    moblinCheck(Room1Moblins, 1.0)
-    moblinCheck(SecretRoomMoblins, 1.0)
-    moblinCheck(Gannondorfs, 2.0)
+    moblinCheck(Room1Moblins)
+    moblinCheck(SecretRoomMoblins)
+    GannondorfCheck(Gannondorfs)
     if Gannondorf.health <= GANNONDORF_HEALTH // 2:
         boss_battle = False
         boss_battle2 = True
@@ -843,17 +885,17 @@ def draw() -> None:
             TILESIZE,
         )
         pyxel.blt(key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7)
-        pyxel.blt(
-            Gannondorf.x,
-            Gannondorf.y,
-            0,
-            0,
-            80,
-            2 * TILESIZE,
-            2 * TILESIZE,
-            14,
-        )
         pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
+
+        for Gannondorf in Gannondorfs:
+            if Gannondorf.direction == "down":
+                pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 0, 80, 32, 32, 14)
+            elif Gannondorf.direction == "up":
+                pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 96, 80, 32, 32, 14)
+            elif Gannondorf.direction == "left":
+                pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 96, 48, 32, 32, 14)
+            elif Gannondorf.direction == "right":
+                pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 128, 48, 32, 32, 14)
 
         for moblin in Room1Moblins + SecretRoomMoblins:
             if moblin.direction == "down":
