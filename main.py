@@ -627,8 +627,17 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
     for mob in moblins:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
-            canGo = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
-            if canGo:
+            canGoUL = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
+            canGoUR = canYouGoThere(
+                mob.x + TILESIZE + stepX * TILESIZE, mob.y + stepY * TILESIZE
+            )
+            canGoBR = canYouGoThere(
+                mob.x + TILESIZE + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE
+            )
+            canGoBL = canYouGoThere(
+                mob.x + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE
+            )
+            if canGoUL and canGoUR and canGoBR and canGoBL:
                 mob.x += int(stepX * TILESIZE)
                 mob.y += int(stepY * TILESIZE)
                 if int(stepY) == -1:
@@ -890,6 +899,12 @@ def draw() -> None:
                 pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 96, 48, 32, 32, 14)
             elif Gannondorf.direction == "right":
                 pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 128, 48, 32, 32, 14)
+
+            # Draw hitbox circles
+            pyxel.circ(Gannondorf.x, Gannondorf.y, 3, 5)
+            pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y, 3, 5)
+            pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y + TILESIZE, 3, 5)
+            pyxel.circ(Gannondorf.x, Gannondorf.y + TILESIZE, 3, 5)
 
         for moblin in Room1Moblins + SecretRoomMoblins:
             if moblin.direction == "down":
