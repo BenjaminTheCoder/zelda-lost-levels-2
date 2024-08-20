@@ -627,12 +627,10 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
     for mob in moblins:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
-            canGo = canYouGoThere(
-                mob.x + stepX * TILESIZE * 2, mob.y + stepY * TILESIZE * 2
-            )
+            canGo = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
             if canGo:
-                mob.x += int(stepX * TILESIZE * 2)
-                mob.y += int(stepY * TILESIZE * 2)
+                mob.x += int(stepX * TILESIZE)
+                mob.y += int(stepY * TILESIZE)
                 if int(stepY) == -1:
                     mob.direction = "up"
                 elif int(stepY) == 1:
@@ -643,26 +641,22 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
                     mob.direction = "left"
                     print("left")
         if (
-            slash_sword.x == mob.x * TILESIZE * 2
-            and slash_sword.y == mob.y * TILESIZE * 2
+            slash_sword.x == mob.x
+            and slash_sword.y == mob.y
             and player.slashing == True
         ):
             mob.health -= 1
-        if arrow.x == mob.x * TILESIZE * 2 and arrow.y == mob.y * TILESIZE * 2:
+        if arrow.x == mob.x and arrow.y == mob.y:
             mob.health -= 1
             player.arrow_frame = 0
-        if (
-            player.x == mob.x * TILESIZE * 2
-            and player.y == mob.y * TILESIZE * 2
-            and random.random() < 0.3
-        ):
+        if player.x == mob.x and player.y == mob.y and random.random() < 0.3:
             if not player.shielding:
                 player.health -= 1
             else:
                 player.health -= 1 / 5
         if mob.health <= 0:
-            mob.x = -700000000000000000
-            mob.y = -700000000000000000
+            mob.x = -7000000000000000000000000000000000
+            mob.y = -7000000000000000000000000000000000
 
 
 def update() -> None:
