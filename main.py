@@ -603,7 +603,6 @@ def moblinCheck(
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-                    print("left")
         if (
             slash_sword.x == mob.x
             and slash_sword.y == mob.y
@@ -619,8 +618,8 @@ def moblinCheck(
             else:
                 player.health -= 1 / 5
         if mob.health <= 0:
-            mob.x = -7000000000000000000000000000000000
-            mob.y = -7000000000000000000000000000000000
+            mob.x = -7000
+            mob.y = -7000
 
 
 def GannondorfCheck(moblins: list[Moblin]) -> None:
@@ -648,24 +647,33 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-                    print("left")
         if (
-            slash_sword.x == mob.x
-            and slash_sword.y == mob.y
+            (slash_sword.x == mob.x and slash_sword.y == mob.y)
+            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y)
+            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y + TILESIZE)
+            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE)
             and player.slashing == True
         ):
             mob.health -= 1
-        if arrow.x == mob.x and arrow.y == mob.y:
+
+        if (
+            (arrow.x == mob.x and arrow.y == mob.y)
+            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y)
+            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y + TILESIZE)
+            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE)
+            and player.shooting == True
+        ):
             mob.health -= 1
             player.arrow_frame = 0
+            print("Ouch!")
         if player.x == mob.x and player.y == mob.y and random.random() < 0.3:
             if not player.shielding:
                 player.health -= 1
             else:
                 player.health -= 1 / 5
         if mob.health <= 0:
-            mob.x = -7000000000000000000000000000000000
-            mob.y = -7000000000000000000000000000000000
+            mob.x = -7000
+            mob.y = -7000
 
 
 def update() -> None:
@@ -916,6 +924,7 @@ def draw() -> None:
             elif moblin.direction == "right":
                 pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
 
+        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
         elif player.direction == "up":
@@ -1173,7 +1182,7 @@ def play_sound(sound: str | None) -> None:
 reset_game()
 
 # Jitter the screen widht and height by 1 pixel to improve rendering
-pyxel.init(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, fps=15, display_scale=2)
+pyxel.init(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, fps=15, display_scale=1)
 pyxel.load("assets.pyxres")
 pyxel.mouse(True)
 pyxel.run(update, draw)
