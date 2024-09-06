@@ -80,110 +80,30 @@ arrow = ItemWithDirection(
 Din = Item(x=640, y=80, name="Dinral", tile_x=32, tile_y=112)
 bow = Item(x=26 * TILESIZE, y=19 * TILESIZE, name="Bow", tile_x=32, tile_y=0)
 quiver = Item(x=25 * TILESIZE, y=19 * TILESIZE, name="Quiver", tile_x=48, tile_y=0)
-open_chest = Item(
-    x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80
-)
-closed_chest = Item(
-    x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96
-)
+open_chest = Item(x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80)
+closed_chest = Item(x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96)
 key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-Gannondorf = Moblin(
-    x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down"
-)
-secretdoor1 = Rect(
-    x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR
-)
-secretdoor2 = Rect(
-    x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR
-)
+Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
+secretdoor1 = Rect(x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
+secretdoor2 = Rect(x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
 walls = [
-    Rect(
-        x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR
-    ),
-    Rect(
-        x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR
-    ),
-    Rect(
-        x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR
-    ),  # bottom
-    Rect(
-        x=48 * TILESIZE,
-        y=0 * TILESIZE,
-        w=2 * TILESIZE,
-        h=60 * TILESIZE,
-        color=WALLCOLOR,
-    ),  # right
-    Rect(
-        x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR
-    ),  # done
+    Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
+    Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+    Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
+    Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
+    Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
     Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
     Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-    Rect(
-        x=16 * TILESIZE,
-        y=17 * TILESIZE,
-        w=7 * TILESIZE,
-        h=5 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=16 * TILESIZE,
-        y=25 * TILESIZE,
-        w=7 * TILESIZE,
-        h=4 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=16 * TILESIZE,
-        y=16 * TILESIZE,
-        w=17 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=17 * TILESIZE,
-        y=2 * TILESIZE,
-        w=16 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR
-    ),
-    Rect(
-        x=24 * TILESIZE,
-        y=25 * TILESIZE,
-        w=9 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=32 * TILESIZE,
-        y=17 * TILESIZE,
-        w=1 * TILESIZE,
-        h=9 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=32 * TILESIZE,
-        y=16 * TILESIZE,
-        w=15 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=16 * TILESIZE,
-        y=14 * TILESIZE,
-        w=1 * TILESIZE,
-        h=2 * TILESIZE,
-        color=WALLCOLOR,
-    ),
-    Rect(
-        x=32 * TILESIZE,
-        y=14 * TILESIZE,
-        w=1 * TILESIZE,
-        h=2 * TILESIZE,
-        color=WALLCOLOR,
-    ),
+    Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
+    Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
+    Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
+    Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
+    Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+    Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
 ]
 doors = [
     Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
@@ -228,13 +148,12 @@ def reset_game() -> None:
         direction="down",
         slashing=False,
         shooting=False,
+        shielding=False,
         arrow_frame=0,
         arrow_dir="up",
         health=10,
-        shielding=False,
     )
     sword = Item(x=9 * TILESIZE, y=12 * TILESIZE, name="Sword", tile_x=16, tile_y=0)
-    shield = Item(x=27 * TILESIZE, y=19 * TILESIZE, name="Shield", tile_x=112, tile_y=0)
     slash_sword = ItemWithDirection(
         x=-10 * TILESIZE,
         y=-10 * TILESIZE,
@@ -248,6 +167,7 @@ def reset_game() -> None:
         tile_y_right=32,
         alpha=7,
     )
+    shield = Item(x=27 * TILESIZE, y=19 * TILESIZE, name="Shield", tile_x=112, tile_y=0)
     shoot_bow = ItemWithDirection(
         x=-20 * TILESIZE,
         y=-20 * TILESIZE,
@@ -264,14 +184,14 @@ def reset_game() -> None:
     sheilding_shield = ItemWithDirection(
         x=-20 * TILESIZE,
         y=-20 * TILESIZE,
-        tile_x_down=16,
-        tile_y_down=64,
-        tile_x_up=0,
-        tile_y_up=64,
-        tile_x_left=32,
-        tile_y_left=64,
-        tile_x_right=48,
-        tile_y_right=64,
+        tile_x_down=0,
+        tile_y_down=16,
+        tile_x_up=112,
+        tile_y_up=32,
+        tile_x_left=96,
+        tile_y_left=0,
+        tile_x_right=80,
+        tile_y_right=0,
         alpha=14,
     )
     arrow = ItemWithDirection(
@@ -290,166 +210,48 @@ def reset_game() -> None:
     Din = Item(x=640, y=80, name="Dinral", tile_x=32, tile_y=112)
     bow = Item(x=26 * TILESIZE, y=19 * TILESIZE, name="Bow", tile_x=32, tile_y=0)
     quiver = Item(x=25 * TILESIZE, y=19 * TILESIZE, name="Quiver", tile_x=48, tile_y=0)
-    open_chest = Item(
-        x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80
-    )
-    closed_chest = Item(
-        x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96
-    )
+    open_chest = Item(x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80)
+    closed_chest = Item(x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96)
     key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-    Gannondorf = Moblin(
-        x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down"
-    )
-    secretdoor1 = Rect(
-        x=23 * TILESIZE,
-        y=25 * TILESIZE,
-        w=1 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    )
-    secretdoor2 = Rect(
-        x=47 * TILESIZE,
-        y=16 * TILESIZE,
-        w=1 * TILESIZE,
-        h=1 * TILESIZE,
-        color=WALLCOLOR,
-    )
+    Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
+    secretdoor1 = Rect(x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
+    secretdoor2 = Rect(x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
     walls = [
-        Rect(
-            x=0 * TILESIZE,
-            y=0 * TILESIZE,
-            w=2 * TILESIZE,
-            h=60 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=0 * TILESIZE,
-            y=0 * TILESIZE,
-            w=80 * TILESIZE,
-            h=2 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR
-        ),  # bottom
-        Rect(
-            x=48 * TILESIZE,
-            y=0 * TILESIZE,
-            w=2 * TILESIZE,
-            h=60 * TILESIZE,
-            color=WALLCOLOR,
-        ),  # right
-        Rect(
-            x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR
-        ),  # done
+        Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
+        Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
+        Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
+        Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
         Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-        Rect(
-            x=10 * TILESIZE,
-            y=16 * TILESIZE,
-            w=6 * TILESIZE,
-            h=TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=16 * TILESIZE,
-            y=17 * TILESIZE,
-            w=7 * TILESIZE,
-            h=5 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=16 * TILESIZE,
-            y=25 * TILESIZE,
-            w=7 * TILESIZE,
-            h=4 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=16 * TILESIZE,
-            y=16 * TILESIZE,
-            w=17 * TILESIZE,
-            h=1 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=17 * TILESIZE,
-            y=2 * TILESIZE,
-            w=16 * TILESIZE,
-            h=1 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=32 * TILESIZE,
-            y=2 * TILESIZE,
-            w=1 * TILESIZE,
-            h=7 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=24 * TILESIZE,
-            y=25 * TILESIZE,
-            w=9 * TILESIZE,
-            h=1 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=32 * TILESIZE,
-            y=17 * TILESIZE,
-            w=1 * TILESIZE,
-            h=9 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=32 * TILESIZE,
-            y=16 * TILESIZE,
-            w=15 * TILESIZE,
-            h=1 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=16 * TILESIZE,
-            y=14 * TILESIZE,
-            w=1 * TILESIZE,
-            h=2 * TILESIZE,
-            color=WALLCOLOR,
-        ),
-        Rect(
-            x=32 * TILESIZE,
-            y=14 * TILESIZE,
-            w=1 * TILESIZE,
-            h=2 * TILESIZE,
-            color=WALLCOLOR,
-        ),
+        Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
+        Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
+        Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
+        Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
+        Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
+        Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
     ]
     doors = [
         Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
         Rect(x=8 * TILESIZE, y=16 * TILESIZE, w=2 * TILESIZE, h=1 * TILESIZE, color=4),
-        Rect(
-            x=16 * TILESIZE, y=22 * TILESIZE, w=1 * TILESIZE, h=3 * TILESIZE, color=13
-        ),
+        Rect(x=16 * TILESIZE, y=22 * TILESIZE, w=1 * TILESIZE, h=3 * TILESIZE, color=13),
         Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
     ]
     Room1Moblins = [
         Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
         Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
         Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(
-            x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
-        ),
-        Moblin(
-            x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
-        ),
+        Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
     ]
     SecretRoomMoblins = [
-        Moblin(
-            x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
-        ),
-        Moblin(
-            x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
-        ),
-        Moblin(
-            x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"
-        ),
+        Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
     ]
     Gannondorfs = [Gannondorf]
     dr1 = Rect(x=256 - TILESIZE, y=112, w=16, h=112, color=7)
@@ -479,20 +281,10 @@ def Is_Gannon_dead() -> bool:
 def canYouGoThere(nextX: float, nextY: float) -> bool:
     canGo = True
     for wall in walls:
-        if (
-            nextX >= wall.x
-            and nextX < wall.x + wall.w
-            and nextY >= wall.y
-            and nextY < wall.h + wall.y
-        ):
+        if nextX >= wall.x and nextX < wall.x + wall.w and nextY >= wall.y and nextY < wall.h + wall.y:
             canGo = False
     for door in doors:
-        if (
-            nextX >= door.x
-            and nextX < door.x + door.w
-            and nextY >= door.y
-            and nextY < door.h + door.y
-        ):
+        if nextX >= door.x and nextX < door.x + door.w and nextY >= door.y and nextY < door.h + door.y:
             canGo = False
     return canGo
 
@@ -603,11 +395,7 @@ def moblinCheck(
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-        if (
-            slash_sword.x == mob.x
-            and slash_sword.y == mob.y
-            and player.slashing == True
-        ):
+        if slash_sword.x == mob.x and slash_sword.y == mob.y and player.slashing == True:
             mob.health -= 1
         if arrow.x == mob.x and arrow.y == mob.y:
             mob.health -= 1
@@ -627,15 +415,9 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
             canGoUL = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
-            canGoUR = canYouGoThere(
-                mob.x + TILESIZE + stepX * TILESIZE, mob.y + stepY * TILESIZE
-            )
-            canGoBR = canYouGoThere(
-                mob.x + TILESIZE + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE
-            )
-            canGoBL = canYouGoThere(
-                mob.x + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE
-            )
+            canGoUR = canYouGoThere(mob.x + TILESIZE + stepX * TILESIZE, mob.y + stepY * TILESIZE)
+            canGoBR = canYouGoThere(mob.x + TILESIZE + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE)
+            canGoBL = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + TILESIZE + stepY * TILESIZE)
             if canGoUL and canGoUR and canGoBR and canGoBL:
                 mob.x += int(stepX * TILESIZE)
                 mob.y += int(stepY * TILESIZE)
@@ -647,22 +429,18 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-        if (
-            (slash_sword.x == mob.x and slash_sword.y == mob.y)
-            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y)
-            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y + TILESIZE)
-            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE)
-            and player.slashing == True
-        ):
+        if ((slash_sword.x == mob.x and slash_sword.y == mob.y) 
+            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y) 
+            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y + TILESIZE) 
+            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE) 
+            and player.slashing == True): 
             mob.health -= 1
 
-        if (
-            (arrow.x == mob.x and arrow.y == mob.y)
-            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y)
-            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y + TILESIZE)
-            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE)
-            and player.shooting == True
-        ):
+        if ((arrow.x == mob.x and arrow.y == mob.y) 
+            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y) 
+            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y + TILESIZE) 
+            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE) 
+            and player.shooting == True): 
             mob.health -= 1
             player.arrow_frame = 0
             print("Ouch!", mob.health)
@@ -758,47 +536,39 @@ def update() -> None:
         key.x = TILESIZE * 11
         key.y = TILESIZE * 28
     for door in doors:
-        if (
-            door.color == 0
-            and key in player.inventory
-            and player.x >= dr1.x
-            and player.x < dr1.x + dr1.w
-            and player.y >= dr1.y
-            and player.y < dr1.y + dr1.h
-        ):
-            door.x = -1000000
-            door.y = -1000000
+        if (door.color == 0 
+            and key in player.inventory 
+            and player.x >= dr1.x 
+            and player.x < dr1.x + dr1.w 
+            and player.y >= dr1.y 
+            and player.y < dr1.y + dr1.h): 
+            door.x = -10000
+            door.y = -10000
             if not boss_battle2:
                 boss_battle = True
-        if (
-            door.color == 4
-            and player.x >= dr2.x
-            and player.x < dr2.x + dr2.w
-            and player.y >= dr2.y
-            and player.y < dr2.y + dr2.h
-        ):
-            door.x = -1000000
-            door.y = -1000000
-        if (
-            door.color == 13
-            and player.x >= dr3.x
-            and player.x < dr3.x + dr3.w
-            and player.y >= dr3.y
-            and player.y < dr3.y + dr3.h
-            and Are_room_1_Moblins_dead(Room1Moblins) == True
-        ):
-            door.x = -1000000
-            door.y = -1000000
-        if (
-            door.color == 7
-            and player.x >= dr4.x
-            and player.x < dr4.x + dr4.w
-            and player.y >= dr4.y
-            and player.y < dr4.y + dr4.h
-            and Is_Gannon_dead() == True
-        ):
-            door.x = -1000000
-            door.y = -1000000
+        if (door.color == 4 
+            and player.x >= dr2.x 
+            and player.x < dr2.x + dr2.w 
+            and player.y >= dr2.y 
+            and player.y < dr2.y + dr2.h): 
+            door.x = -10000
+            door.y = -10000
+        if (door.color == 13 
+            and player.x >= dr3.x 
+            and player.x < dr3.x + dr3.w 
+            and player.y >= dr3.y 
+            and player.y < dr3.y + dr3.h 
+            and Are_room_1_Moblins_dead(Room1Moblins) == True): 
+            door.x = -10000
+            door.y = -10000
+        if (door.color == 7 
+            and player.x >= dr4.x 
+            and player.x < dr4.x + dr4.w 
+            and player.y >= dr4.y 
+            and player.y < dr4.y + dr4.h 
+            and Is_Gannon_dead() == True): 
+            door.x = -10000
+            door.y = -10000
     if pyxel.btnp(pyxel.KEY_R, repeat=1) and (game_over == True or win == True):
         reset_game()
         print(f"Player after reset game {player}")
@@ -836,65 +606,13 @@ def draw() -> None:
         #             pyxel.rect(wall.x, wall.y, wall.w, wall.h, wall.color)
         # debug_rect = getDebugRect()
         for i in range(int(round(player.health))):
-            pyxel.blt(
-                heart.x + (i * TILESIZE * 2),
-                heart.y,
-                0,
-                heart.tile_x,
-                heart.tile_y,
-                TILESIZE,
-                TILESIZE,
-                7,
-            )
-        pyxel.blt(
-            sword.x,
-            sword.y,
-            0,
-            sword.tile_x,
-            sword.tile_y,
-            TILESIZE,
-            TILESIZE,
-            14,
-        )
+            pyxel.blt(heart.x + (i * TILESIZE * 2), heart.y, 0, heart.tile_x, heart.tile_y, TILESIZE, TILESIZE, 7)
+        pyxel.blt(sword.x, sword.y, 0, sword.tile_x, sword.tile_y, TILESIZE, TILESIZE, 14)
         pyxel.blt(bow.x, bow.y, 0, bow.tile_x, bow.tile_y, TILESIZE, TILESIZE, 14)
-        pyxel.blt(
-            shield.x,
-            shield.y,
-            0,
-            shield.tile_x,
-            shield.tile_y,
-            TILESIZE,
-            TILESIZE,
-            14,
-        )
-        pyxel.blt(
-            quiver.x,
-            quiver.y,
-            0,
-            quiver.tile_x,
-            quiver.tile_y,
-            TILESIZE,
-            TILESIZE,
-            14,
-        )
-        pyxel.blt(
-            closed_chest.x,
-            closed_chest.y,
-            0,
-            closed_chest.tile_x,
-            closed_chest.tile_y,
-            TILESIZE,
-            TILESIZE,
-        )
-        pyxel.blt(
-            open_chest.x,
-            open_chest.y,
-            0,
-            open_chest.tile_x,
-            open_chest.tile_y,
-            TILESIZE,
-            TILESIZE,
-        )
+        pyxel.blt(shield.x, shield.y, 0, shield.tile_x, shield.tile_y, TILESIZE, TILESIZE, 14)
+        pyxel.blt(quiver.x, quiver.y, 0, quiver.tile_x, quiver.tile_y, TILESIZE, TILESIZE, 14)
+        pyxel.blt(closed_chest.x, closed_chest.y, 0, closed_chest.tile_x, closed_chest.tile_y, TILESIZE, TILESIZE)
+        pyxel.blt(open_chest.x, open_chest.y, 0, open_chest.tile_x, open_chest.tile_y, TILESIZE, TILESIZE)
         pyxel.blt(key.x, key.y, 0, key.tile_x, key.tile_y, TILESIZE, TILESIZE, 7)
         pyxel.blt(Din.x, Din.y, 0, Din.tile_x, Din.tile_y, TILESIZE, TILESIZE, 14)
 
