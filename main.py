@@ -665,7 +665,7 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
         ):
             mob.health -= 1
             player.arrow_frame = 0
-            print("Ouch!")
+            print("Ouch!", mob.health)
         if player.x == mob.x and player.y == mob.y and random.random() < 0.3:
             if not player.shielding:
                 player.health -= 1
@@ -1182,7 +1182,7 @@ def play_sound(sound: str | None) -> None:
 reset_game()
 
 # Jitter the screen widht and height by 1 pixel to improve rendering
-pyxel.init(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, fps=15, display_scale=1)
+pyxel.init(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, fps=15, display_scale=2)
 pyxel.load("assets.pyxres")
 pyxel.mouse(True)
 pyxel.run(update, draw)
