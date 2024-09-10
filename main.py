@@ -397,6 +397,7 @@ def moblinCheck(
                     mob.direction = "left"
         if slash_sword.x == mob.x and slash_sword.y == mob.y and player.slashing == True:
             mob.health -= 1
+            print("Moblin sword hit", mob.health)
         if arrow.x == mob.x and arrow.y == mob.y:
             mob.health -= 1
             player.arrow_frame = 0
@@ -429,26 +430,31 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
                     mob.direction = "right"
                 elif int(stepX) == -1:
                     mob.direction = "left"
-        if ((slash_sword.x == mob.x and slash_sword.y == mob.y) 
+
+        if (((slash_sword.x == mob.x and slash_sword.y == mob.y) 
             or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y) 
             or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y + TILESIZE) 
-            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE) 
+            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE))
             and player.slashing == True): 
             mob.health -= 1
 
-        if ((arrow.x == mob.x and arrow.y == mob.y) 
+        if (((arrow.x == mob.x and arrow.y == mob.y) 
             or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y) 
             or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y + TILESIZE) 
-            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE) 
+            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE)) 
             and player.shooting == True): 
             mob.health -= 1
             player.arrow_frame = 0
-            print("Ouch!", mob.health)
-        if player.x == mob.x and player.y == mob.y and random.random() < 0.3:
+            
+        if ((player.x == mob.x and player.y == mob.y) 
+            or (player.x == mob.x + TILESIZE and player.y == mob.y) 
+            or (player.x == mob.x + TILESIZE and player.y == mob.y + TILESIZE) 
+            or (player.x == mob.x and player.y == mob.y + TILESIZE)):
             if not player.shielding:
                 player.health -= 1
             else:
                 player.health -= 1 / 5
+        
         if mob.health <= 0:
             mob.x = -7000
             mob.y = -7000
@@ -588,9 +594,9 @@ def draw() -> None:
     elif win == True:
         play_sound("win")
         pyxel.cls(0)
-        pyxel.blt(369, 248 - 80, 2, 16, 80, 16, 32)
-        pyxel.text(367, 300 - 80, "YOU WIN!", 11)
-        pyxel.text(350, 325 - 80, "PRESS R TO RESTART", 11)
+        pyxel.blt(630, 100 - 80, 2, 16, 80, 16, 32)
+        pyxel.text(625, 135 - 80, "YOU WIN!", 11)
+        pyxel.text(605, 150 - 80, "PRESS R TO RESTART", 11)
     else:
         if boss_battle == True:
             play_sound("boss")
