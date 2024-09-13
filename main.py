@@ -410,8 +410,14 @@ def moblinCheck(
             mob.x = -7000
             mob.y = -7000
 
+def collision_check2by2(mob: Moblin, collider: ItemWithDirection | Player) -> bool:
+    return ((collider.x == mob.x and collider.y == mob.y) 
+        or (collider.x == mob.x + TILESIZE and collider.y == mob.y) 
+        or (collider.x == mob.x + TILESIZE and collider.y == mob.y + TILESIZE) 
+        or (collider.x == mob.x and collider.y == mob.y + TILESIZE))
+    
 
-def GannondorfCheck(moblins: list[Moblin]) -> None:
+def fat_guy_check(moblins: list[Moblin]) -> None:
     for mob in moblins:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
@@ -431,29 +437,21 @@ def GannondorfCheck(moblins: list[Moblin]) -> None:
                 elif int(stepX) == -1:
                     mob.direction = "left"
 
-        if (((slash_sword.x == mob.x and slash_sword.y == mob.y) 
-            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y) 
-            or (slash_sword.x == mob.x + TILESIZE and slash_sword.y == mob.y + TILESIZE) 
-            or (slash_sword.x == mob.x and slash_sword.y == mob.y + TILESIZE))
-            and player.slashing == True): 
-            mob.health -= 1
+        if (collision_check2by2(mob, slash_sword) and player.slashing == True):
+            mob.health-1
 
-        if (((arrow.x == mob.x and arrow.y == mob.y) 
-            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y) 
-            or (arrow.x == mob.x + TILESIZE and arrow.y == mob.y + TILESIZE) 
-            or (arrow.x == mob.x and arrow.y == mob.y + TILESIZE)) 
-            and player.shooting == True): 
+        if (collision_check2by2(mob, arrow) and player.shooting == True):
             mob.health -= 1
             player.arrow_frame = 0
-            
-        if ((player.x == mob.x and player.y == mob.y) 
-            or (player.x == mob.x + TILESIZE and player.y == mob.y) 
-            or (player.x == mob.x + TILESIZE and player.y == mob.y + TILESIZE) 
-            or (player.x == mob.x and player.y == mob.y + TILESIZE)):
+
+        if (collision_check2by2(mob, player)):
             if not player.shielding:
                 player.health -= 1
+                print('owie')
             else:
                 player.health -= 1 / 5
+                print('ow')
+
         
         if mob.health <= 0:
             mob.x = -7000
@@ -529,7 +527,7 @@ def update() -> None:
         player.shooting = False
     moblinCheck(Room1Moblins)
     moblinCheck(SecretRoomMoblins)
-    GannondorfCheck(Gannondorfs)
+    fat_guy_check(Gannondorfs)
     if Gannondorf.health <= GANNONDORF_HEALTH // 2:
         boss_battle = False
         boss_battle2 = True
