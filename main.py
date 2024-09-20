@@ -592,6 +592,7 @@ def draw() -> None:
     elif win == True:
         play_sound("win")
         pyxel.cls(0)
+        pyxel.camera(0, 0)
         pyxel.blt(630, 100 - 80, 2, 16, 80, 16, 32)
         pyxel.text(625, 135 - 80, "YOU WIN!", 11)
         pyxel.text(605, 150 - 80, "PRESS R TO RESTART", 11)
@@ -602,12 +603,12 @@ def draw() -> None:
             play_sound("boss2")
         else:
             play_sound("game")
-        pyxel.cls(8)
-        pyxel.bltm(0, 0, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+        pyxel.cls(2)
+        # pyxel.bltm(0, 0, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         for door in doors:
             pyxel.rect(door.x, door.y, door.w, door.h, door.color)
-        #         for wall in walls:
-        #             pyxel.rect(wall.x, wall.y, wall.w, wall.h, wall.color)
+        for wall in walls:
+            pyxel.rect(wall.x, wall.y, wall.w, wall.h, wall.color)
         # debug_rect = getDebugRect()
         for i in range(int(round(player.health))):
             pyxel.blt(heart.x + (i * TILESIZE * 2), heart.y, 0, heart.tile_x, heart.tile_y, TILESIZE, TILESIZE, 7)
@@ -646,7 +647,7 @@ def draw() -> None:
             elif moblin.direction == "right":
                 pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
 
-        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
+#        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
         elif player.direction == "up":
@@ -879,8 +880,8 @@ def draw() -> None:
                 )
 
 
-#         pyxel.rect(secretdoor1.x, secretdoor1.y, secretdoor1.w, secretdoor1.h, WALLCOLOR)
-#         pyxel.rect(secretdoor2.x, secretdoor2.y, secretdoor2.w, secretdoor2.h, WALLCOLOR)
+        pyxel.rect(secretdoor1.x, secretdoor1.y, secretdoor1.w, secretdoor1.h, WALLCOLOR)
+        pyxel.rect(secretdoor2.x, secretdoor2.y, secretdoor2.w, secretdoor2.h, WALLCOLOR)
 
 
 def play_sound(sound: str | None) -> None:
