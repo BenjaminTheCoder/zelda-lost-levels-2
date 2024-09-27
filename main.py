@@ -632,20 +632,20 @@ def draw() -> None:
                 pyxel.blt(Gannondorf.x, Gannondorf.y, 0, 128, 48, 32, 32, 14)
 
             # Draw hitbox circles
-            pyxel.circ(Gannondorf.x, Gannondorf.y, 3, 5)
-            pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y, 3, 5)
-            pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y + TILESIZE, 3, 5)
-            pyxel.circ(Gannondorf.x, Gannondorf.y + TILESIZE, 3, 5)
+            # pyxel.circ(Gannondorf.x, Gannondorf.y, 3, 5)
+            # pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y, 3, 5)
+            # pyxel.circ(Gannondorf.x + TILESIZE, Gannondorf.y + TILESIZE, 3, 5)
+            # pyxel.circ(Gannondorf.x, Gannondorf.y + TILESIZE, 3, 5)
 
         for moblin in Room1Moblins + SecretRoomMoblins:
             if moblin.direction == "down":
-                pyxel.blt(moblin.x, moblin.y, 0, 32, 80, 16, 16, 14)
+                pyxel.blt(moblin.x, moblin.y, 0, 80, 144, 16, 16, 0)
             elif moblin.direction == "up":
-                pyxel.blt(moblin.x, moblin.y, 0, 80, 128, 16, 16, 14)
+                pyxel.blt(moblin.x, moblin.y, 0, 80, 160, 16, 16, 0)
             elif moblin.direction == "left":
-                pyxel.blt(moblin.x, moblin.y, 0, 48, 128, 16, 16, 14)
+                pyxel.blt(moblin.x, moblin.y, 0, 64, 160, 16, 16, 0)
             elif moblin.direction == "right":
-                pyxel.blt(moblin.x, moblin.y, 0, 64, 128, 16, 16, 14)
+                pyxel.blt(moblin.x, moblin.y, 0, 64, 144, 16, 16, 0)
 
 #        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
         if player.direction == "down":

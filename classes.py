@@ -28,6 +28,12 @@ class Moblin(Enemy):
     pass
 
 
+
+@dataclass
+class sheild_guy(Enemy):
+    pass    
+
+
 @dataclass
 class Item:
     x: int
