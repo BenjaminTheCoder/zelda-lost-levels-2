@@ -24,7 +24,7 @@ class Enemy(Agent):
 
 
 @dataclass
-class Moblin(Enemy):
+class Darknut(Enemy):
     pass
 
 

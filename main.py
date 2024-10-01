@@ -83,27 +83,27 @@ quiver = Item(x=25 * TILESIZE, y=19 * TILESIZE, name="Quiver", tile_x=48, tile_y
 open_chest = Item(x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80)
 closed_chest = Item(x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96)
 key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
+Gannondorf = Darknut(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
 secretdoor1 = Rect(x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
 secretdoor2 = Rect(x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
 walls = [
-    Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
-    Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
-    Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
-    Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
-    Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
-    Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-    Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-    Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
-    Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
-    Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-    Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-    Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
-    Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-    Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
-    Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-    Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
-    Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
+    # Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
+    # Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
+    # Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
+    # Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
+    # Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+    # Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
 ]
 doors = [
     Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
@@ -112,16 +112,16 @@ doors = [
     Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
 ]
 Room1Moblins = [
-    Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
 ]
 SecretRoomMoblins = [
-    Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-    Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+    Darknut(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
 ]
 Gannondorfs = [Gannondorf]
 dr1 = Rect(x=256 - TILESIZE, y=112, w=16, h=112, color=7)
@@ -213,45 +213,47 @@ def reset_game() -> None:
     open_chest = Item(x=-53 * TILESIZE, y=-53 * TILESIZE, name="Open_chest", tile_x=48, tile_y=80)
     closed_chest = Item(x=24 * TILESIZE, y=19 * TILESIZE, name="Closed_chest", tile_x=32, tile_y=96)
     key = Item(x=-52 * TILESIZE, y=-52 * TILESIZE, name="Key", tile_x=48, tile_y=96)
-    Gannondorf = Moblin(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
-    secretdoor1 = Rect(x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
-    secretdoor2 = Rect(x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
+    Gannondorf = Darknut(x=24 * TILESIZE, y=10 * TILESIZE, health=GANNONDORF_HEALTH, direction="down")
+    # secretdoor1 = Rect(x=23 * TILESIZE, y=25 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
+    # secretdoor2 = Rect(x=47 * TILESIZE, y=16 * TILESIZE, w=1 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR)
     walls = [
-        Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
-        Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
-        Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
-        Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
-        Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
-        Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-        Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
-        Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
-        Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
-        Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-        Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-        Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
-        Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-        Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
-        Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
-        Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
-        Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=0 * TILESIZE, y=0 * TILESIZE, w=80 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=0, y=27 * TILESIZE, w=80 * TILESIZE, h=10 * TILESIZE, color=WALLCOLOR),  # bottom
+        # Rect(x=48 * TILESIZE, y=0 * TILESIZE, w=2 * TILESIZE, h=60 * TILESIZE, color=WALLCOLOR),  # right
+        # Rect(x=16 * TILESIZE, y=0 * TILESIZE, w=TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),  # done
+        # Rect(x=0, y=16 * TILESIZE, w=8 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
+        # Rect(x=10 * TILESIZE, y=16 * TILESIZE, w=6 * TILESIZE, h=TILESIZE, color=WALLCOLOR),
+        # Rect(x=16 * TILESIZE, y=17 * TILESIZE, w=7 * TILESIZE, h=5 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=16 * TILESIZE, y=25 * TILESIZE, w=7 * TILESIZE, h=4 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=16 * TILESIZE, y=16 * TILESIZE, w=17 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=17 * TILESIZE, y=2 * TILESIZE, w=16 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=32 * TILESIZE, y=2 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=24 * TILESIZE, y=25 * TILESIZE, w=9 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=32 * TILESIZE, y=17 * TILESIZE, w=1 * TILESIZE, h=9 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        # Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
+        Rect(x = 0, y = 0 ,w=1 * TILESIZE, h=480, color=WALLCOLOR),
+        Rect(x =700 * TILESIZE , y = 0 ,w=1 * TILESIZE, h=480, color=WALLCOLOR)
     ]
     doors = [
-        Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
-        Rect(x=8 * TILESIZE, y=16 * TILESIZE, w=2 * TILESIZE, h=1 * TILESIZE, color=4),
-        Rect(x=16 * TILESIZE, y=22 * TILESIZE, w=1 * TILESIZE, h=3 * TILESIZE, color=13),
-        Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
+        # Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
+        # Rect(x=8 * TILESIZE, y=16 * TILESIZE, w=2 * TILESIZE, h=1 * TILESIZE, color=4),
+        # Rect(x=16 * TILESIZE, y=22 * TILESIZE, w=1 * TILESIZE, h=3 * TILESIZE, color=13),
+        # Rect(x=32 * TILESIZE, y=9 * TILESIZE, w=1 * TILESIZE, h=5 * TILESIZE, color=7),
     ]
     Room1Moblins = [
-        Moblin(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=5 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=5 * TILESIZE, y=20 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=8 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=13 * TILESIZE, y=25 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=13 * TILESIZE, y=21 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
     ]
     SecretRoomMoblins = [
-        Moblin(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
-        Moblin(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=42 * TILESIZE, y=26 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=38 * TILESIZE, y=22 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
+        Darknut(x=35 * TILESIZE, y=19 * TILESIZE, health=MOBLIN_HEALTH, direction="down"),
     ]
     Gannondorfs = [Gannondorf]
     dr1 = Rect(x=256 - TILESIZE, y=112, w=16, h=112, color=7)
@@ -260,12 +262,12 @@ def reset_game() -> None:
     dr4 = Rect(x=496, y=144, w=16, h=80, color=7)
 
 
-def Are_room_1_Moblins_dead(Room1Moblins: list[Moblin]) -> bool:
+def Are_room_1_Moblins_dead(Room1Darknuts: list[Darknut]) -> bool:
     deadcount = 0
-    for moblin in Room1Moblins:
+    for moblin in Room1Darknuts:
         if moblin.health == 0:
             deadcount += 1
-    if deadcount == len(Room1Moblins):
+    if deadcount == len(Room1Darknuts):
         return True
     else:
         return False
@@ -378,46 +380,45 @@ def vector2D(x1: float, y1: float, x2: float, y2: float) -> tuple[float, float]:
 
 
 def moblinCheck(
-    moblins: list[Moblin],
+    darknuts: list[Darknut],
 ) -> None:
-    for mob in moblins:
+    for nut in darknuts:
         if random.random() < 0.05:
-            stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
-            canGo = canYouGoThere(mob.x + stepX * TILESIZE, mob.y + stepY * TILESIZE)
+            stepX, stepY = vector2D(nut.x, nut.y, player.x, player.y)
+            canGo = canYouGoThere(nut.x + stepX * TILESIZE, nut.y + stepY * TILESIZE)
             if canGo:
-                mob.x += int(stepX * TILESIZE)
-                mob.y += int(stepY * TILESIZE)
+                nut.x += int(stepX * TILESIZE)
+                nut.y += int(stepY * TILESIZE)
                 if int(stepY) == -1:
-                    mob.direction = "up"
+                    nut.direction = "up"
                 elif int(stepY) == 1:
-                    mob.direction = "down"
+                    nut.direction = "down"
                 if int(stepX) == 1:
-                    mob.direction = "right"
+                    nut.direction = "right"
                 elif int(stepX) == -1:
-                    mob.direction = "left"
-        if slash_sword.x == mob.x and slash_sword.y == mob.y and player.slashing == True:
-            mob.health -= 1
-            print("Moblin sword hit", mob.health)
-        if arrow.x == mob.x and arrow.y == mob.y:
-            mob.health -= 1
+                    nut.direction = "left"
+        if slash_sword.x == nut.x and slash_sword.y == nut.y and player.slashing == True:
+            nut.health -= 1
+        if arrow.x == nut.x and arrow.y == nut.y:
+            nut.health -= 1
             player.arrow_frame = 0
-        if player.x == mob.x and player.y == mob.y and random.random() < 0.3:
+        if player.x == nut.x and player.y == nut.y and random.random() < 0.3:
             if not player.shielding:
                 player.health -= 1
             else:
                 player.health -= 1 / 5
-        if mob.health <= 0:
-            mob.x = -7000
-            mob.y = -7000
+        if nut.health <= 0:
+            nut.x = -7000
+            nut.y = -7000
 
-def collision_check2by2(mob: Moblin, collider: ItemWithDirection | Player) -> bool:
+def collision_check2by2(mob: Darknut, collider: ItemWithDirection | Player) -> bool:
     return ((collider.x == mob.x and collider.y == mob.y) 
         or (collider.x == mob.x + TILESIZE and collider.y == mob.y) 
         or (collider.x == mob.x + TILESIZE and collider.y == mob.y + TILESIZE) 
         or (collider.x == mob.x and collider.y == mob.y + TILESIZE))
     
 
-def fat_guy_check(moblins: list[Moblin]) -> None:
+def fat_guy_check(moblins: list[Darknut]) -> None:
     for mob in moblins:
         if random.random() < 0.05:
             stepX, stepY = vector2D(mob.x, mob.y, player.x, player.y)
@@ -609,7 +610,12 @@ def draw() -> None:
             pyxel.rect(door.x, door.y, door.w, door.h, door.color)
         for wall in walls:
             pyxel.rect(wall.x, wall.y, wall.w, wall.h, wall.color)
-        # debug_rect = getDebugRect()
+        
+        
+        debug_rect = getDebugRect()
+        pyxel.rect(debug_rect.x, debug_rect.y, debug_rect.w, debug_rect.h, debug_rect.color)
+        if pyxel.btnp(pyxel.KEY_P, repeat=1):
+            print(debug_rect)
         for i in range(int(round(player.health))):
             pyxel.blt(heart.x + (i * TILESIZE * 2), heart.y, 0, heart.tile_x, heart.tile_y, TILESIZE, TILESIZE, 7)
         pyxel.blt(sword.x, sword.y, 0, sword.tile_x, sword.tile_y, TILESIZE, TILESIZE, 14)
