@@ -143,7 +143,7 @@ def reset_game() -> None:
     heart = Item(x=27 * TILESIZE, y=TILESIZE * 28, name="Heart", tile_x=0, tile_y=32)
     player = Player(
         x=SCREEN_WIDTH // 5,
-        y=SCREEN_HEIGHT // 5,
+        y=(SCREEN_HEIGHT // 5) + SCREEN_HEIGHT,
         inventory=[],
         direction="down",
         slashing=False,
@@ -234,8 +234,13 @@ def reset_game() -> None:
         # Rect(x=32 * TILESIZE, y=16 * TILESIZE, w=15 * TILESIZE, h=1 * TILESIZE, color=WALLCOLOR),
         # Rect(x=16 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
         # Rect(x=32 * TILESIZE, y=14 * TILESIZE, w=1 * TILESIZE, h=2 * TILESIZE, color=WALLCOLOR),
-        Rect(x = 0, y = 0 ,w=1 * TILESIZE, h=480, color=WALLCOLOR),
-        Rect(x =700 * TILESIZE , y = 0 ,w=1 * TILESIZE, h=480, color=WALLCOLOR)
+        Rect(x = 0, y = 0 ,w=1 * TILESIZE, h=480*2, color=WALLCOLOR),
+        Rect(x = 785 , y = 0 ,w=1 * TILESIZE, h=480*2, color=WALLCOLOR),
+        Rect(x = 0 , y = 0 ,w = 1600, h= 1 * TILESIZE, color=WALLCOLOR),
+        Rect(x = 0 , y = 430 ,w = 1600, h= 4 * TILESIZE - 2, color=WALLCOLOR),
+        Rect(x = 0 , y = 240 ,w = 800, h= 1 * TILESIZE - 2, color=WALLCOLOR),
+        Rect(x = 390, y = 0 ,w=1 * TILESIZE, h=480, color=WALLCOLOR),
+        Rect(x = 0 , y = 430 + SCREEN_HEIGHT ,w = 1600, h= 4 * TILESIZE - 2, color=WALLCOLOR),
     ]
     doors = [
         # Rect(x=16 * TILESIZE, y=7 * TILESIZE, w=1 * TILESIZE, h=7 * TILESIZE, color=0),
@@ -605,6 +610,7 @@ def draw() -> None:
         else:
             play_sound("game")
         pyxel.cls(2)
+        pyxel.camera(0, SCREEN_HEIGHT)
         # pyxel.bltm(0, 0, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
         for door in doors:
             pyxel.rect(door.x, door.y, door.w, door.h, door.color)
@@ -653,7 +659,7 @@ def draw() -> None:
             elif moblin.direction == "right":
                 pyxel.blt(moblin.x, moblin.y, 0, 64, 144, 16, 16, 0)
 
-#        pyxel.camera(player.x - SCREEN_WIDTH // 2, player.y - SCREEN_HEIGHT // 2)
+        
         if player.direction == "down":
             pyxel.blt(player.x, player.y, 0, 0, 0, 16, 16, 7)
         elif player.direction == "up":
